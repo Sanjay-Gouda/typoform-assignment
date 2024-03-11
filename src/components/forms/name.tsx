@@ -1,6 +1,8 @@
 import Inputfield from "../UI/inputfield";
 import FormButton from "../UI/button";
 import { motion } from "framer-motion";
+import RadionButton from "../UI/radioButton";
+import FormCheckbox from "../UI/checkbox";
 
 const Name = () => {
   return (
@@ -14,7 +16,9 @@ const Name = () => {
         <div className="wrapper">
           <h1>What's your first name? *</h1>
 
-          <Inputfield placeholder="Type your name here" />
+          {/* <RadionButton /> */}
+          <FormCheckbox />
+          {/* <Inputfield placeholder="Type your name here" /> */}
         </div>
       </motion.div>
     </>
