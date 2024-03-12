@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useState } from "react";
+
 import Box from "@mui/joy/Box";
 import FormLabel from "@mui/joy/FormLabel";
 import Radio from "@mui/joy/Radio";
@@ -28,17 +30,31 @@ const StyledRadio = styled(Radio)`
   &.MuiRadio-label {
     color: #ffffff !important;
   }
-  //   &.MuiRadio-action {
-  //     &:hover {
-  //       background-color: rgba(255, 255, 255, 0.3) !important;
-  //     }
-  //   }
-  //   &:hover {
-  //     background-color: rgba(255, 255, 255, 0.3) !important;
-  //   }
+  .MuiRadio-action {
+    background: ${(props) =>
+      props.checked ? "rgba(255, 255, 255, 0.3)" : "transparent"};
+  }
+  .MuiRadio-action:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+  }
+  &.MuiRadio-action:active {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+  }
 `;
 
-const RadionButton = () => {
+const roles = ["Founder or CXO", "Product team", "Marketing Team", "VC"];
+
+type TRadioProps = {
+  onClick: (ind: number, value: string) => void;
+  selectedRole: number;
+};
+
+const RadionButton = ({ onClick, selectedRole }: TRadioProps) => {
+  // const [selectedRole, setSelectedRole] = useState<number>(null);
+  // const handleClick = (id: number) => {
+  //   setSelectedRole(id);
+  // };
+
   return (
     <Box sx={{ width: 300 }}>
       <RadioGroup
@@ -47,7 +63,7 @@ const RadionButton = () => {
         size="lg"
         sx={{ gap: 1.5, backgroundColor: "#000000" }}
       >
-        {["512GB", "1TB", "2TB"].map((value) => (
+        {roles.map((value, ind) => (
           <StyledSheet
             key={value}
             sx={{
@@ -56,10 +72,14 @@ const RadionButton = () => {
               boxShadow: "sm",
             }}
           >
+            {/* <div>A</div> */}
             <StyledRadio
-              label={`${value} SSD storage`}
+              label={`${value}`}
               overlay
               disableIcon
+              checked={ind === selectedRole}
+              onClick={() => onClick(ind, value)}
+              // onChange={handleChange}
               value={value}
               slotProps={{
                 label: ({ checked }) => ({
@@ -73,10 +93,10 @@ const RadionButton = () => {
                   sx: (theme) => ({
                     ...(checked && {
                       "--variant-borderWidth": "2px",
-                      "&&": {
-                        // && to increase the specificity to win the base :hover styles
-                        borderColor: theme.vars.palette.primary[500],
-                      },
+                      // "&&": {
+                      //   // && to increase the specificity to win the base :hover styles
+                      //   borderColor: theme.vars.palette.primary[500],
+                      // },
                     }),
                   }),
                 }),

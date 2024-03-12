@@ -3,8 +3,32 @@ import FormButton from "../UI/button";
 import { motion } from "framer-motion";
 import RadionButton from "../UI/radioButton";
 import FormCheckbox from "../UI/checkbox";
+import FormHeading from "../UI/formHeading";
+import { useContext, useState } from "react";
+import { FormProgress } from "../../context/form-context";
+import { useProgress } from "../../hooks/useProgress";
+import { Alert } from "@mui/material";
+import AlertError from "../UI/alertError";
 
 const Name = () => {
+  const { handleProgressCount } = useProgress();
+  const { firstName, setFirstName } = useContext(FormProgress);
+
+  const [isError, setIsError] = useState(false);
+
+  const handleChange = (e: any) => {
+    setFirstName(e.target.value);
+    setIsError(false);
+  };
+
+  const handleSubmit = () => {
+    if (firstName === "") {
+      setIsError(true);
+    } else {
+      handleProgressCount();
+    }
+  };
+
   return (
     <>
       <motion.div
@@ -14,12 +38,18 @@ const Name = () => {
         transition={{ duration: 0.5, stiffness: 200 }}
       >
         <div className="wrapper">
-          <h1>What's your first name? *</h1>
-
-          {/* <RadionButton /> */}
-          <FormCheckbox />
-          {/* <Inputfield placeholder="Type your name here" /> */}
+          <FormHeading heading="What's your first name?" />
+          <Inputfield
+            placeholder="Type your name here"
+            onChange={handleChange}
+            value={firstName}
+          />
         </div>
+        {isError ? (
+          <AlertError />
+        ) : (
+          <FormButton label="Next" handleClick={handleSubmit} />
+        )}
       </motion.div>
     </>
   );

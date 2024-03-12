@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 type TInputprops = {
   placeholder: string;
+  onChange: (e: any) => void;
+  value: string;
 };
 
 const StyledInputField = styled(Input)`
@@ -16,7 +18,7 @@ const StyledInputField = styled(Input)`
   margin-right: 0 !important;
 `;
 
-const Inputfield = ({ placeholder }: TInputprops) => {
+const Inputfield = ({ placeholder, onChange, value }: TInputprops) => {
   const ariaLabel = { "aria-label": "description" };
   return (
     <>
@@ -32,6 +34,8 @@ const Inputfield = ({ placeholder }: TInputprops) => {
         <StyledInputField
           defaultValue=""
           inputProps={ariaLabel}
+          onChange={onChange}
+          value={value}
           placeholder={placeholder}
           style={{ width: "100%", fontSize: "1.75em" }}
         />

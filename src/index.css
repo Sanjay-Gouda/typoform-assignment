@@ -13,6 +13,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Hide scrollbar for Firefox */
+* {
+  scrollbar-width: none;
+}
+
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -34,6 +44,11 @@ h1 {
   font-size: 1.75em;
   line-height: 1.1;
   color: #ffffff;
+  margin:0;
+}
+p{
+  margin:0;
+
 }
 
 

@@ -3,12 +3,13 @@ import Button from "@mui/material/Button";
 type TButtonProps = {
   label?: string;
   handleClick: () => void;
+  style?: any;
 };
 
-const FormButton = ({ label, handleClick }: TButtonProps) => {
+const FormButton = ({ label, style, handleClick }: TButtonProps) => {
   return (
     <>
-      <Button variant="contained" onClick={handleClick}>
+      <Button variant="contained" style={style} onClick={handleClick}>
         {label}
       </Button>
     </>

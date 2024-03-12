@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Select from "react-select";
 import styled from "styled-components";
+import { OPTIONS } from "../../constants/industries";
 
-const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
-];
+type TSelectProps = {
+  selectedOption: { value: string; label: string };
+  setSelectedOption: () => void;
+};
 
 const StyledSelect = styled(Select)`
   width: 100% !important;
@@ -33,14 +33,16 @@ const StyledSelect = styled(Select)`
   }
 `;
 
-const SelectOption = () => {
-  const [selectedOption, setSelectedOption] = useState<unknown>(null);
+const SelectOption = ({ selectedOption, setSelectedOption }: TSelectProps) => {
+  // const [selectedOption, setSelectedOption] = useState<unknown>(null);
+
   return (
     <>
       <StyledSelect
         defaultValue={selectedOption}
         onChange={setSelectedOption}
-        options={options}
+        options={OPTIONS}
+        placeholder="Select an Option"
         className="react-select-container"
         classNamePrefix="react-select"
       />
