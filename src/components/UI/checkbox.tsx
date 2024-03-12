@@ -32,22 +32,27 @@ const StyledCheckbox = styled(Checkbox)`
   }
 `;
 
-const FormCheckbox = () => {
+type TCheckboxProps = {
+  selectedGoals: string[];
+  onChange: (goal: string) => void;
+};
+
+const FormCheckbox = ({ selectedGoals, onChange }: TCheckboxProps) => {
   const { role } = React.useContext(FormProgress);
 
   const prefrenceGoal = role === "Founder or CXO" ? foundergoals : goals;
 
-  const [selectedGoals, setSelectedGoals] = React.useState<string[]>([]);
+  // const [selectedGoals, setSelectedGoals] = React.useState<string[]>([]);
 
-  const handleChange = (goals: string) => {
-    if (selectedGoals.includes(goals)) {
-      setSelectedGoals(selectedGoals.filter((item) => item !== goals));
-    } else {
-      if (selectedGoals.length < 2) {
-        setSelectedGoals([...selectedGoals, goals]);
-      }
-    }
-  };
+  // const handleChange = (goals: string) => {
+  //   if (selectedGoals.includes(goals)) {
+  //     setSelectedGoals(selectedGoals.filter((item) => item !== goals));
+  //   } else {
+  //     if (selectedGoals.length < 2) {
+  //       setSelectedGoals([...selectedGoals, goals]);
+  //     }
+  //   }
+  // };
 
   return (
     <Box
@@ -74,7 +79,7 @@ const FormCheckbox = () => {
             disabled={
               selectedGoals.length === 2 && !selectedGoals.includes(goal)
             }
-            onChange={() => handleChange(goal)}
+            onChange={() => onChange(goal)}
           />
         </StyledSheet>
       ))}

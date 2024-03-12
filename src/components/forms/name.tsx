@@ -11,7 +11,7 @@ import { Alert } from "@mui/material";
 import AlertError from "../UI/alertError";
 
 const Name = () => {
-  const { handleProgressCount } = useProgress();
+  const { handleProgressCount, handleProgressbar } = useProgress();
   const { firstName, setFirstName } = useContext(FormProgress);
 
   const [isError, setIsError] = useState(false);
@@ -26,6 +26,7 @@ const Name = () => {
       setIsError(true);
     } else {
       handleProgressCount();
+      handleProgressbar();
     }
   };
 
@@ -48,7 +49,7 @@ const Name = () => {
         {isError ? (
           <AlertError />
         ) : (
-          <FormButton label="Next" handleClick={handleSubmit} />
+          <FormButton label="Ok" handleClick={handleSubmit} />
         )}
       </motion.div>
     </>

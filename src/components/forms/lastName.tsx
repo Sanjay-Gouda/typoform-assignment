@@ -8,7 +8,7 @@ import { FormProgress } from "../../context/form-context";
 import AlertError from "../UI/alertError";
 
 const LastName = () => {
-  const { handleProgressCount } = useProgress();
+  const { handleProgressCount, handleProgressbar } = useProgress();
   const { firstName, lastName, setLastName } = useContext(FormProgress);
   const [isError, setIsError] = useState(false);
 
@@ -22,6 +22,7 @@ const LastName = () => {
       setIsError(true);
     } else {
       handleProgressCount();
+      handleProgressbar();
     }
   };
 
@@ -46,7 +47,7 @@ const LastName = () => {
           {isError ? (
             <AlertError />
           ) : (
-            <FormButton label="Next" handleClick={handleSubmit} />
+            <FormButton label="Ok" handleClick={handleSubmit} />
           )}
         </div>
       </motion.div>

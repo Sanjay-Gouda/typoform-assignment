@@ -3,8 +3,9 @@ import SelectOption from "../UI/select";
 import FormHeading from "../UI/formHeading";
 import FormButton from "../UI/button";
 import { useProgress } from "../../hooks/useProgress";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AlertError from "../UI/alertError";
+import { FormProgress } from "../../context/form-context";
 
 type TOptions = {
   Label: string;
@@ -12,7 +13,8 @@ type TOptions = {
 };
 
 const Industry = () => {
-  const { handleProgressCount } = useProgress();
+  const { handleProgressCount, handleProgressbar } = useProgress();
+  const { setIndustry } = useContext(FormProgress);
   const [isError, setIsError] = useState(false);
 
   const [selectedOption, setSelectedOption] = useState<TOptions>({
@@ -31,7 +33,9 @@ const Industry = () => {
       setIsError(true);
     } else {
       setIsError(false);
+      setIndustry(selectedOption.value);
       handleProgressCount();
+      handleProgressbar();
     }
   };
 
@@ -58,7 +62,7 @@ const Industry = () => {
           ) : (
             <div style={{ position: "relative", zIndex: "-1" }}>
               <FormButton
-                label="Next"
+                label="Ok"
                 style={{ position: "absolute" }}
                 handleClick={handleSubmit}
               />

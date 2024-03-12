@@ -9,7 +9,7 @@ import AlertError from "../UI/alertError";
 import { FormContext, FormProgress } from "../../context/form-context";
 
 const Role = () => {
-  const { handleProgressCount } = useProgress();
+  const { handleProgressCount, handleProgressbar } = useProgress();
 
   const { setRole } = useContext(FormProgress);
 
@@ -29,6 +29,7 @@ const Role = () => {
     } else {
       setIsError(false);
       handleProgressCount();
+      handleProgressbar();
     }
   };
 
