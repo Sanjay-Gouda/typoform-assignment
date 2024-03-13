@@ -26,7 +26,7 @@ function App() {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-      <div className="flex flex-col" style={{ width: "100%" }}>
+      <div className="flex flex-col" style={{ width: "100%", height: "100vh" }}>
         <div style={{ height: "10vh", padding: "10px" }}>
           <div style={{ width: "150px", height: "60px" }}>
             <img
