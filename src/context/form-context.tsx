@@ -16,7 +16,7 @@ interface FormProgressContextType {
   setRole: (role: string) => void;
   role: string;
   progress: number;
-  setProgress: (count: number) => void;
+  setProgress: (count: any) => void;
 }
 
 export const FormProgress = createContext<FormProgressContextType | undefined>(

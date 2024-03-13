@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { OPTIONS } from "../../constants/industries";
 
 type TSelectProps = {
-  selectedOption: { value: string; label: string };
-  setSelectedOption: () => void;
+  selectedOption: unknown;
+  setSelectedOption: (option: any) => void;
 };
 
 const StyledSelect = styled(Select)`

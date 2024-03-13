@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { FormProgress } from "../context/form-context";
 
 export const useProgress = () => {
-  let { setProgressCount, setProgress, setEmail, setFirstName, setLastName } =
+  const { setProgressCount, setProgress, setEmail, setFirstName, setLastName } =
     useContext(FormProgress);
 
   const handleProgressCount = () => {
-    setProgressCount((count) => count + 1);
+    setProgressCount((count: any) => count + 1);
   };
 
   const resetForm = () => {
