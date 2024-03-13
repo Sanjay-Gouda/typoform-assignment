@@ -2,21 +2,21 @@ import { createContext, useState } from "react";
 
 interface FormProgressContextType {
   email: string;
-  setEmail: () => void;
+  setEmail: (email: string) => void;
   goal: unknown[];
-  setGoal: () => void;
+  setGoal: (goal: unknown[]) => void;
   industry: string;
   progressCount: number;
-  setProgressCount: () => void;
+  setProgressCount: (count: number) => void;
   lastName: string;
-  setLastName: () => void;
+  setLastName: (lname: string) => void;
   firstName: string;
-  setFirstName: () => void;
-  setIndustry: () => void;
-  setRole: () => void;
+  setFirstName: (fname: string) => void;
+  setIndustry: (industry: string) => void;
+  setRole: (role: string) => void;
   role: string;
   progress: number;
-  setProgress: () => void;
+  setProgress: (count: number) => void;
 }
 
 export const FormProgress = createContext<FormProgressContextType | undefined>(

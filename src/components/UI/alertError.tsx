@@ -2,7 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Alert } from "@mui/material";
 
-const AlertError = ({ message }: string) => {
+type TAlertProps = {
+  message?: string;
+};
+
+const AlertError = ({ message }: TAlertProps) => {
   return (
     <>
       <motion.div

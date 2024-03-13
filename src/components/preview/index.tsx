@@ -1,5 +1,3 @@
-import React, { useContext } from "react";
-import { FormProgress } from "../../context/form-context";
 import FormButton from "../UI/button";
 import { useProgress } from "../../hooks/useProgress";
 
