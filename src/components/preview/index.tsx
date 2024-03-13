@@ -4,8 +4,8 @@ import FormButton from "../UI/button";
 import { useProgress } from "../../hooks/useProgress";
 
 const Preview = () => {
-  const { email, firstName, lastName, role, industry, goal } =
-    useContext(FormProgress);
+  // const { email, firstName, lastName, role, industry, goal } =
+  //   useContext(FormProgress);
 
   const { resetForm } = useProgress();
 

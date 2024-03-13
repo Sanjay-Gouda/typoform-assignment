@@ -1,6 +1,27 @@
 import { createContext, useState } from "react";
 
-export const FormProgress = createContext(0);
+interface FormProgressContextType {
+  email: string;
+  setEmail: () => void;
+  goal: unknown[];
+  setGoal: () => void;
+  industry: string;
+  progressCount: number;
+  setProgressCount: () => void;
+  lastName: string;
+  setLastName: () => void;
+  firstName: string;
+  setFirstName: () => void;
+  setIndustry: () => void;
+  setRole: () => void;
+  role: string;
+  progress: number;
+  setProgress: () => void;
+}
+
+export const FormProgress = createContext<FormProgressContextType | undefined>(
+  undefined
+);
 
 export const FormContext = ({ children }) => {
   const [progressCount, setProgressCount] = useState<number>(0);
