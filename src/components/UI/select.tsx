@@ -34,15 +34,13 @@ const StyledSelect = styled(Select)`
 `;
 
 const SelectOption = ({ selectedOption, setSelectedOption }: TSelectProps) => {
-  // const [selectedOption, setSelectedOption] = useState<unknown>(null);
-
   return (
     <>
       <StyledSelect
         defaultValue={selectedOption}
         onChange={setSelectedOption}
         options={OPTIONS}
-        placeholder="Select an Option"
+        placeholder="Select..."
         className="react-select-container"
         classNamePrefix="react-select"
       />
