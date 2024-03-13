@@ -18,7 +18,7 @@ export const useProgress = () => {
   };
 
   const handleProgressbar = () => {
-    setProgress((count) => count + 18);
+    setProgress((count: any) => count + 18);
   };
 
   return {

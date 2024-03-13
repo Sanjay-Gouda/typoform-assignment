@@ -7,7 +7,7 @@ interface FormProgressContextType {
   setGoal: (goal: unknown[]) => void;
   industry: string;
   progressCount: number;
-  setProgressCount: (count: number) => void;
+  setProgressCount: (count: any) => void;
   lastName: string;
   setLastName: (lname: string) => void;
   firstName: string;
