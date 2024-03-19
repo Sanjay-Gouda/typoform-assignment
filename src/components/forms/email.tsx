@@ -14,19 +14,6 @@ const Email = () => {
   const [isError, setIsError] = useState(false);
   const [inValidError, setInvalidError] = useState(false);
 
-  // const handleSubmit = () => {
-  //   fetch("https://eo3oi83n1j77wgp.m.pipedream.net", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/x-www-form-urlencoded",
-  //     },
-  //     body: new URLSearchParams(formData),
-  //   })
-  //     .then((response) => response.text())
-  //     .then((data) => console.log(data))
-  //     .catch((error) => console.error("Error:", error));
-  // };
-
   const handleChange = (e) => {
     setEmail(e.target.value);
     setIsError(false);

@@ -1,13 +1,13 @@
 import { createContext, useState } from "react";
 
-interface FormProgressContextType {
+type TFormProgressContextType = {
   email: string;
   setEmail: (email: string) => void;
   goal: unknown[];
   setGoal: (goal: unknown[]) => void;
   industry: string;
   progressCount: number;
-  setProgressCount: (count: any) => void;
+  setProgressCount: (count: number) => void;
   lastName: string;
   setLastName: (lname: string) => void;
   firstName: string;
@@ -16,12 +16,27 @@ interface FormProgressContextType {
   setRole: (role: string) => void;
   role: string;
   progress: number;
-  setProgress: (count: any) => void;
-}
+  setProgress: (count: number) => void;
+};
 
-export const FormProgress = createContext<FormProgressContextType | undefined>(
-  undefined
-);
+export const FormProgress = createContext<TFormProgressContextType>({
+  email: "",
+  firstName: "",
+  goal: [{}],
+  industry: "",
+  lastName: "",
+  progress: 0,
+  progressCount: 0,
+  role: "",
+  setEmail: () => {},
+  setFirstName: () => {},
+  setGoal: () => {},
+  setIndustry: () => {},
+  setLastName: () => {},
+  setProgress: () => {},
+  setProgressCount: () => {},
+  setRole: () => {},
+});
 
 export const FormContext = ({ children }) => {
   const [progressCount, setProgressCount] = useState<number>(0);
@@ -29,9 +44,9 @@ export const FormContext = ({ children }) => {
   const [lastName, setLastName] = useState<string>("");
   const [role, setRole] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [progress, setProgress] = useState(0);
-  const [industry, setIndustry] = useState("");
-  const [goal, setGoal] = useState([]);
+  const [progress, setProgress] = useState<number>(0);
+  const [industry, setIndustry] = useState<string>("");
+  const [goal, setGoal] = useState<unknown>([]);
   return (
     <>
       <FormProgress.Provider
